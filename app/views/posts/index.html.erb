@@ -1,0 +1,17 @@
+<h2 id="the_count">Count: <%= Post.count%></h2>
+
+<%= turbo_frame_tag id="new_post", src: new_post_path %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <!-- <%= link_to "Show this post", post %> -->
+    </p>
+    <hr>
+  <% end %>
+</div>
