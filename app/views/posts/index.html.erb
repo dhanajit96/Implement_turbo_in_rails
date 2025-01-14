@@ -1,17 +1,26 @@
-<h2 id="the_count">Count: <%= Post.count%></h2>
+<p id="the_count">Count: <%= Post.count%>
+</p>
 
-<%= turbo_frame_tag id="new_post", src: new_post_path %>
+<%= turbo_frame_tag id="title" do %>
+  Here will be title
+  <%end%>
 
-<p style="color: green"><%= notice %></p>
+    <%= turbo_frame_tag id="new_post" do %>
 
-<h1>Posts</h1>
+      <%= link_to "New Post" , new_post_path(format: :turbo_stream), class: "btn btn-primary" , data: {
+        turbo_frame: "new_post" , turbo_prefetch: "false" } %>
+        <% end %>
+          <p style="color: green">
+            <%= notice %>
+          </p>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <!-- <%= link_to "Show this post", post %> -->
-    </p>
-    <hr>
-  <% end %>
-</div>
+          <h2>Posts</h2>
+
+          <div id="posts">
+            <% @posts.each do |post| %>
+              <%= render post %>
+                <span>
+                  <%= link_to "Show this post" , post %>
+                </span>
+                <% end %>
+          </div>

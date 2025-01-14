@@ -1,0 +1,11 @@
+<%= turbo_stream.replace "new_post" do %>
+    <h3>New post</h3>
+    <%= render "form", post: @post %>
+    <br>
+    <div>
+      <%= link_to "Back to posts", posts_path %>
+    </div>
+  <% end %>
+<%= turbo_stream.replace "title" do %>
+    <h2>Add New Post</h2>
+  <% end %>

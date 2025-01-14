@@ -1,4 +1,13 @@
 <%= turbo_stream.prepend "posts", @post %>
 <%= turbo_stream.replace "the_count" do %>
-  <h2>Count: <%= Post.count %></h2>
+  <p>Count: <%= Post.count %></p>
 <% end %>
+
+<%= turbo_stream.replace "new_post" do %>
+  <%= link_to "New Post" , new_post_path, class: "btn btn-primary" %>
+<% end %>
+
+<%= turbo_stream.replace "title_for_new" do %>
+  <p>Added a new post</p>
+<% end %>
+
