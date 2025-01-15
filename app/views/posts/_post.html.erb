@@ -8,6 +8,20 @@
     <strong>Body:</strong>
     <%= post.body %>
   </p>
-  
-  <hr>
+  <% if params[:action]=='index' %>
+    <div style="display: flex; justify-content: space-between;">
+      <span>
+        <%= link_to "Show this post" , post %>
+      </span>
+      <span>
+        <!-- <%= button_to "Destroy this post" , post, method: :delete %> -->
+
+
+        <%= link_to "Delete" , post_path(post), method: :delete, data: { turbo_method: "delete" ,
+          turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+
+      </span>
+    </div>
+    <hr>
+    <%end%>
 </div>

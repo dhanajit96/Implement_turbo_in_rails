@@ -54,10 +54,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to posts_path, status: :see_other, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to posts_path, notice: "Post was successfully deleted." }
+      format.turbo_stream # Handles Turbo Stream responses
     end
   end
 

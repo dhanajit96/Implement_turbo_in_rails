@@ -1,0 +1,5 @@
+
+<%= turbo_stream.remove dom_id(@post) %>
+<%= turbo_stream.replace "the_count" do %>
+  <p>Count: <%= Post.count %></p>
+<% end %>

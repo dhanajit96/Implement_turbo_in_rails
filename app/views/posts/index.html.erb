@@ -1,6 +1,3 @@
-<p id="the_count">Count: <%= Post.count%>
-</p>
-
 <%= turbo_frame_tag id="title" do %>
   Here will be title
   <%end%>
@@ -14,13 +11,10 @@
             <%= notice %>
           </p>
 
-          <h2>Posts</h2>
+          <h3>Posts</h3><span id="the_count"> Count: <%= Post.count%></span>
 
           <div id="posts">
             <% @posts.each do |post| %>
               <%= render post %>
-                <span>
-                  <%= link_to "Show this post" , post %>
-                </span>
                 <% end %>
           </div>
