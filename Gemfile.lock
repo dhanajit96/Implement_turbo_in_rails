@@ -113,6 +113,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    marathi_typing (0.0.1)
     marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.1.0)
@@ -222,6 +223,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  marathi_typing
   puma (~> 5.0)
   rails (~> 7.0.8, >= 7.0.8.6)
   selenium-webdriver
