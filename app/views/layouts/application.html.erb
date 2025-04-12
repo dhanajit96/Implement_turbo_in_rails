@@ -8,8 +8,25 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
+    <style>
+      .suggestions-box {
+        border-verticle: 1px solid #ccc;
+        background: white;
+        position: absolute;
+        z-index: 1000;
+        width: 300px;
+      }
 
+      .suggestion {
+        padding: 4px 6px;
+        cursor: pointer;
+      }
+
+      .suggestion:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
   <body>
     <%= yield %>
   </body>

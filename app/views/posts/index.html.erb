@@ -1,20 +1,35 @@
 <%= turbo_frame_tag id="title" do %>
   Here will be title
-  <%end%>
-
-    <%= turbo_frame_tag id="new_post" do %>
-
-      <%= link_to "New Post" , new_post_path(format: :turbo_stream), class: "btn btn-primary" , data: {
+<%end%>
+<%= turbo_frame_tag id="new_post" do %>
+  <%= link_to "New Post" , new_post_path(format: :turbo_stream), class: "btn btn-primary" , data: {
         turbo_frame: "new_post" , turbo_prefetch: "false" } %>
-        <% end %>
-          <p style="color: green">
-            <%= notice %>
-          </p>
-
-          <h3>Posts</h3><span id="the_count"> Count: <%= Post.count%></span>
-
-          <div id="posts">
-            <% @posts.each do |post| %>
-              <%= render post %>
-                <% end %>
-          </div>
+<% end %>
+<p style="color: green">
+  <%= notice %>
+</p>
+<h3>Posts</h3>
+<span id="the_count"> Count: <%= Post.count%></span>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>
+<div data-controller="hello">
+  test
+</div>
+<div data-controller="marathi-input">
+  <label>Type in Marathi (phonetically):</label>
+  <input type="text"
+         data-marathi-input-target="input"
+         data-action="input->marathi-input#fetchSuggestions"
+  placeholder="Type in English..." />
+  <div data-marathi-input-target="suggestions" class="suggestions-box"></div>
+</div>
+<br/>
+<h1>Marathi Typing Test</h1>
+<input type="text"
+       class="marathi-typing"
+       data-controller="marathi-typing"
+       data-marathi-typing-target="input"
+       placeholder="Type in English..." />
